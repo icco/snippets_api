@@ -8,6 +8,6 @@ SnippetsApi::App.controllers  do
     logger.info "Recieved: #{params.inspect}"
 
     content_type :json
-    [].to_json
+    params[:data].first.to_json
   end
 end
