@@ -1,0 +1,9 @@
+---
+:orm: none
+:test: minitest
+:mock: none
+:script: none
+:renderer: erb
+:stylesheet: sass
+:namespace: SnippetsApi
+:migration_format: number
