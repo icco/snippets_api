@@ -4,7 +4,7 @@ SnippetsApi::App.controllers  do
     "Snippets API"
   end
   
-  post :user do
+  post :user, :csrf_protection => false do
     logger.info "Recieved: #{params.inspect}"
 
     content_type :json
