@@ -16,6 +16,8 @@ gem 'rake'
 # Component requirements
 gem 'sass'
 gem 'erubis', '~> 2.7.0'
+gem 'activerecord', '>= 3.1', :require => 'active_record'
+gem 'sqlite3'
 
 # Test requirements
 gem 'minitest', '~>2.6.0', :require => 'minitest/autorun', :group => 'test'
