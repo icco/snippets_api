@@ -7,7 +7,7 @@ SnippetsApi::App.controllers  do
   post :user, :csrf_protection => false do
 
     # TODO: Add some sort of key checking.
-    if not params[:snippets_data].nil?
+    if not params["snippets_data"].nil?
       hashes = JSON.parse(params[:snippets_data])
       hashes.map do |hash|
         snip = Snippet.find_or_create(uuid: hash.uuid)
