@@ -8,6 +8,7 @@ SnippetsApi::App.controllers  do
   post :user, :csrf_protection => false do
 
     # TODO: Add some sort of key checking.
+    p params
     if not params["snippets_data"].nil?
       hashes = JSON.parse(params[:snippets_data])
       hashes.map do |hash|
@@ -18,6 +19,7 @@ SnippetsApi::App.controllers  do
 
         snip
       end
+      p hashes
       hashes.each {|s| s.save }
     else
       logger.push("Not a valid post request: #{params.inspect}", :warn)
