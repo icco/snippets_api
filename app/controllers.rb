@@ -12,10 +12,11 @@ SnippetsApi::App.controllers  do
     if not params["snippet_data"].nil?
       hashes = JSON.parse(params[:snippet_data]).delete_if {|a| a.nil? }
       hashes.map do |hash|
-        snip = Snippet.find_or_create(uuid: hash.uuid)
-        snip.text = hash.text
-        snip.user_id = hash.user_id
-        snip.created = hash.created
+        p hash
+        snip = Snippet.find_or_create(uuid: hash[:uuid])
+        snip.text = hash[:text]
+        snip.user_id = hash[:user_id]
+        snip.created = hash[:created]
 
         snip
       end
