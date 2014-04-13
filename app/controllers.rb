@@ -13,12 +13,12 @@ SnippetsApi::App.controllers  do
       hashes = JSON.parse(params[:snippet_data]).delete_if {|a| a.nil? }
       hashes = hashes.map do |hash|
         snip = Snippet.find_or_initialize_by(uuid: hash["uuid"])
-        p snip
         snip.text = hash["text"]
         snip.user_id = hash["user_id"]
         snip.created = hash["created"]
         snip.save
-        p "after save", snip
+        p "after save #{snip.inspect}"
+        p "after save #{snip.errors.inspect}"
 
         snip
       end
