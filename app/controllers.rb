@@ -17,7 +17,7 @@ SnippetsApi::App.controllers  do
         snip.text = hash["text"]
         snip.user_id = hash["user_id"]
         snip.created = hash["created"]
-        s.save
+        snip.save
 
         snip
       end
