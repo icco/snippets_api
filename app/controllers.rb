@@ -8,7 +8,6 @@ SnippetsApi::App.controllers  do
   post :user, :csrf_protection => false do
 
     # TODO: Add some sort of key checking.
-    #puts "Params: #{params.inspect}"
     if not params["snippet_data"].nil?
       hashes = JSON.parse(params[:snippet_data]).delete_if {|a| a.nil? }
       hashes = hashes.map do |hash|
@@ -17,8 +16,6 @@ SnippetsApi::App.controllers  do
         snip.user_id = hash["userId"]
         snip.created = hash["created"]
         snip.save
-        p "after save #{snip.inspect}"
-        p "after save #{snip.errors.inspect}"
 
         snip
       end
