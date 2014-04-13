@@ -1,7 +1,8 @@
 SnippetsApi::App.controllers  do
 
   get :index do
-    "Snippets API"
+    @snippets = Snippet.all
+    render :index
   end
   
   post :user, :csrf_protection => false do
