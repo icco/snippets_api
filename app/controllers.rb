@@ -19,7 +19,7 @@ SnippetsApi::App.controllers  do
       end
       hashes.each {|s| s.save }
     else
-      logger.push("Not a valid post request: #{params.inspect}", :warning)
+      logger.push("Not a valid post request: #{params.inspect}", :warn)
     end
 
     content_type :json
