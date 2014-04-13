@@ -10,7 +10,7 @@ SnippetsApi::App.controllers  do
     # TODO: Add some sort of key checking.
     puts "Params: #{params.inspect}"
     if not params["snippet_data"].nil?
-      hashes = JSON.parse(params[:snippets_data]).delete_if {|a| a.nil? }
+      hashes = JSON.parse(params[:snippet_data]).delete_if {|a| a.nil? }
       hashes.map do |hash|
         snip = Snippet.find_or_create(uuid: hash.uuid)
         snip.text = hash.text
