@@ -11,9 +11,9 @@ SnippetsApi::App.controllers  do
     #puts "Params: #{params.inspect}"
     if not params["snippet_data"].nil?
       hashes = JSON.parse(params[:snippet_data]).delete_if {|a| a.nil? }
-      p hashes
       hashes = hashes.map do |hash|
         snip = Snippet.find_or_initialize_by(uuid: hash["uuid"])
+        p hash, snip
         snip.text = hash["text"]
         snip.user_id = hash["user_id"]
         snip.created = hash["created"]
