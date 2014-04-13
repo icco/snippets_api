@@ -14,7 +14,7 @@ SnippetsApi::App.controllers  do
       hashes = hashes.map do |hash|
         snip = Snippet.find_or_initialize_by(uuid: hash["uuid"])
         snip.text = hash["text"]
-        snip.user_id = hash["user_id"]
+        snip.user_id = hash["userId"]
         snip.created = hash["created"]
         snip.save
         p "after save #{snip.inspect}"
