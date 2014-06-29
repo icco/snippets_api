@@ -17,6 +17,8 @@ SnippetsApi::App.controllers  do
         snip.created = hash["created"]
         snip.save
 
+        logger.push("trying to save: #{snip}", :warn)
+
         snip
       end
       puts "Snippets: #{hashes.inspect}"
