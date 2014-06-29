@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
+
 gem 'actionview', '~> 4.1', '>= 3.1', :require => 'action_view'
 gem 'activerecord', '~> 4.1', '>= 3.1', :require => 'active_record'
 gem 'erubis', '~> 2.7.0'
