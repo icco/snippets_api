@@ -13,13 +13,14 @@ SnippetsApi::App.controllers  do
       hashes = JSON.parse(params[:snippet_data]).delete_if {|a| a.nil? }
       logger.push("parsed: #{hashes.inspect}", :warn)
       hashes = hashes.map do |hash|
+        logging.push("loading: #{hash.inspect}", :warn)
         snip = Snippet.find_or_initialize_by(uuid: hash["uuid"])
         snip.text = hash["text"]
         snip.user_id = hash["userId"]
         snip.created = hash["created"]
         snip.save
 
-        logger.push("trying to save: #{snip}", :warn)
+        logger.push("trying to save: #{snip}, #{snip.errors}", :warn)
 
         snip
       end
