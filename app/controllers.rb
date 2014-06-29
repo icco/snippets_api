@@ -9,7 +9,9 @@ SnippetsApi::App.controllers  do
 
     # TODO: Add some sort of key checking.
     if not params["snippet_data"].nil?
+      logger.push("recieved: #{params.inspect}", :warn)
       hashes = JSON.parse(params[:snippet_data]).delete_if {|a| a.nil? }
+      logger.push("parsed: #{hashes.inspect}", :warn)
       hashes = hashes.map do |hash|
         snip = Snippet.find_or_initialize_by(uuid: hash["uuid"])
         snip.text = hash["text"]
@@ -21,7 +23,8 @@ SnippetsApi::App.controllers  do
 
         snip
       end
-      puts "Snippets: #{hashes.inspect}"
+
+      puts "Snippets: #{Snippet.all.inspect}"
     else
       logger.push("Not a valid post request: #{params.inspect}", :warn)
     end
