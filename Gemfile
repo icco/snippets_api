@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.3'
 
 gem 'actionview', '~> 4.1', '>= 3.1', :require => 'action_view'
 gem 'activerecord', '~> 4.1', '>= 3.1', :require => 'active_record'
